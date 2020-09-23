@@ -152,11 +152,11 @@ function darkmodeToggle(){
     var bttn = document.getElementById("darkMode")
     if(lightMode == true){
         lightMode = false;
-        document.getElementById("stylesheetlink").setAttribute("href","../css/styleDark.css")
-        bttn.setAttribute("src","../images/sun.svg")
+        document.getElementById("stylesheetlink").setAttribute("href","css/styleDark.css")
+        bttn.setAttribute("src","images/sun.svg")
     }else if(lightMode == false){
         lightMode = true;
-        document.getElementById("stylesheetlink").setAttribute("href","../css/style.css")
-        bttn.setAttribute("src","../images/moon.svg")
+        document.getElementById("stylesheetlink").setAttribute("href","css/style.css")
+        bttn.setAttribute("src","images/moon.svg")
     }
 }
