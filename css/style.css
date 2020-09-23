@@ -1,0 +1,169 @@
+body {
+    font-family: Helvetica;
+    background-color: white;
+}
+
+#darkMode {
+    position: absolute;
+
+    transform: scaleX(-1) rotateZ(30deg);
+
+    margin: 40px;
+    width: 50px;
+    top: 0px;
+    right: 0px;
+}
+
+.resultWrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border: 1px solid rgb(206, 206, 206);
+    width: 40vw;
+    height: 39vh;
+    background-color: rgb(255, 255, 255);
+
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.15);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.15);
+
+    transform: translate(-50%, -50%);
+
+    z-index: 1;
+}
+
+.resultWrapper p {
+    position: relative;
+    font-size: 40px;
+    text-align: center;
+    line-height: 50px;
+    top: 38%;
+    transform: translate(0,-50%);
+}
+
+.wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border: 1px solid rgb(206, 206, 206);
+    width: 40vw;
+    height: 39vh;
+
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.15);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.15);
+
+    transform: translate(-50%, -50%);
+}
+
+#inputField {
+    position: absolute;
+    bottom: 0px;
+    padding: 0;
+
+    border: none;
+    width: 100%;
+    height: 22%;
+    background-color: red;
+    
+}
+
+#inputField input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border: none;
+    font-size: 30px;
+    font-weight: 100;
+    padding: 10px;
+    outline: none;
+    border-top: 1px solid rgb(234, 234, 234);
+}
+
+#textShow {
+    width: 100%;
+    height: 78%;
+    background-color: rgb(255, 255, 255);
+    font-size: 30px;
+    font-family: Helvetica;
+    box-sizing: border-box;
+
+    padding: 10px;
+    overflow: hidden;
+    user-select: none;
+}
+
+#currentWord {
+    background-color: rgb(186, 186, 186);
+}
+
+span {
+    padding: 3px;
+    display: inline-block;
+}
+
+.currentWord {
+    background-color: rgb(210,210,210);
+    margin-right: 10px;
+}
+
+.correct {
+    background-color: rgb(203, 233, 157);
+    margin-right: 10px;
+}
+
+.wrong {
+    background-color: rgb(255, 159, 159);
+    margin-right: 10px;
+}
+
+#wpmField {
+    box-sizing: border-box;
+    border-top: 1px solid rgb(234, 234, 234);
+    position: absolute;
+    background-color: white;
+    width: 10vw;
+    height: 100%;
+    top: 0px;
+    right: 0px;
+}
+
+#wpmField p {
+    color: rgb(195, 195, 195);
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+    right: 0px;
+    font-size: 30px;
+    margin: 0;
+    text-align: right;
+    margin-right: 20px;
+}
+
+#timeField {
+    box-sizing: border-box;
+    border-top: 1px solid rgb(234, 234, 234);
+    position: absolute;
+    height: 100%;
+    top: 0px;
+    right: 8vw;
+    width: 4vw;
+
+    z-index: 1;
+
+}
+
+#timeCounter{
+    width: 100%;
+    color: rgb(195, 195, 195);
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+    font-size: 30px;
+    margin: 0;
+    text-align: left;
+    margin-right: 20px;
+
+    border-right: 1px solid rgb(234,234,234);
+}

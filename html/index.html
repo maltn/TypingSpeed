@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link id="stylesheetlink" rel="stylesheet" href="../css/style.css">
+    <script src="../js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>School Project</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div id="textShow" spellcheck="false";>
+        </div>
+        <div id="inputField" spellcheck="false">
+            <div id="timeField">
+                <p id="timeCounter">1:00</p>
+            </div>
+            <div id="wpmField">
+                <p id="wpmCounter">0 WPM</p>
+            </div>
+            <input id="inputA">
+        </div>
+    </div>
+
+    <div class="resultWrapper">
+        <p id="result">Wow!<br> a whole whopping<br> {WPM} words per minute! <br> <br>CTRL R to play again!</p>
+    </div>
+
+    <img id="darkMode" src="../images/moon.svg" onclick="darkmodeToggle()">
+
+    <script>
+        window.addEventListener('load', function () {
+            $(".resultWrapper").hide()
+            generateWords()
+            enter()
+            valueUpdate()
+        })  
+    </script>
+</body>
+</html>
