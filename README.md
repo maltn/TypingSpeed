@@ -1,4 +1,4 @@
 # TypingSpeed
-Test your typing speed.
+Test your typing speed =).
 
 matln.github.io/typingspeed
