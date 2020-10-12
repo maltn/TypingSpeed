@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link id="stylesheetlink" rel="stylesheet" href="css/style.css">
-    <script src="js/main.js"></script>
+    <link id="stylesheetlink" rel="stylesheet" href="css/styleDark.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>School Project</title>
 </head>
@@ -28,15 +27,23 @@
         <p id="result">Wow!<br> a whole whopping<br> {WPM} words per minute! <br> <br>CTRL R to play again!</p>
     </div>
 
-    <img id="darkMode" src="images/moon.svg" onclick="darkmodeToggle()">
+    <div id="settingsMenuWrapper">
+        
+    </div>
+
+
+    <img id="settingsButton" src="images/settings.svg" alt="Settings" onclick="settingsBttn()">
 
     <script>
-        window.addEventListener('load', function () {
+        $(window).on("load",function(){
             $(".resultWrapper").hide()
             requestWordList()
             enter()
             valueUpdate()
-        })  
+        });
     </script>
+
+    <script src="js/main.js"></script>
+    <script src="js/settings.js"></script>
 </body>
 </html>

@@ -3,41 +3,14 @@ body {
     background-color: rgb(11,11,11);
 }
 
-#darkMode {
+#settingsButton {
     position: absolute;
 
-    transform: scaleX(-1);
     margin: 40px;
-    width: 50px;
+    width: 40px;
     top: 0px;
     right: 0px;
     filter: invert();
-}
-
-.resultWrapper {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    border: 1px solid rgb(0, 0, 0);
-    width: 40vw;
-    height: 39vh;
-    background-color:rgb(17,17,17);
-
-
-
-    transform: translate(-50%, -50%);
-
-    z-index: 1;
-}
-
-.resultWrapper p {
-    color: white;
-    position: relative;
-    font-size: 40px;
-    text-align: center;
-    line-height: 50px;
-    top: 38%;
-    transform: translate(0,-50%);
 }
 
 .wrapper {

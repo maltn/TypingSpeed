@@ -29,7 +29,6 @@ function generateWords(words) {
             words.splice(tempI, 1)
         }
     }
-    console.log(words);
 
     var tempString = ""
     var textarea = document.getElementById("textShow")
@@ -133,9 +132,8 @@ function timer(){
             timeCounter.innerText = "0:" + (x - Math.floor(timeCurrent / 1000).toString());
         }
 
+        //time is over show result screen here
         if((x - Math.floor(timeCurrent / 1000)) == 0){
-            $(".resultWrapper").fadeIn(250);
-            document.getElementById("result").innerText = "Wow! a whole whopping " + calc + " words per minute!"
         }
 
         
@@ -166,26 +164,4 @@ function updateWPM(){
         calc = Math.floor((keystrokes/5) / (Math.ceil((timeCurrent / 1000 / 60) * 100) / 100))
         wpmCounter.innerText = calc + " WPM"
     }, 100);
-}
-
-
-
-
-
-
-
-
-
-var lightMode = true;
-function darkmodeToggle(){
-    var bttn = document.getElementById("darkMode")
-    if(lightMode == true){
-        lightMode = false;
-        document.getElementById("stylesheetlink").setAttribute("href","css/styleDark.css")
-        bttn.setAttribute("src","images/sun.svg")
-    }else if(lightMode == false){
-        lightMode = true;
-        document.getElementById("stylesheetlink").setAttribute("href","css/style.css")
-        bttn.setAttribute("src","images/moon.svg")
-    }
 }
