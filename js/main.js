@@ -1,4 +1,3 @@
-var arr = ["example", "potato", "denmark", "computer", "life", "happiness", "internet", "bag", "charger", "whiteboard", "stripes", "jeans", "syria", "chair", "perfect", "wound", "wreck", "committee", "chaos", "accompany", "revolutionary", "translate", "build", "danger", "belief"]
 var currentWord = 1
 
 var keystrokes = 0
@@ -9,13 +8,35 @@ var calc;
 
 var spanofWords = []
 
-function generateWords() {
+function requestWordList(){
+    var request = new XMLHttpRequest();
+    request.open('GET', 'https://raw.githubusercontent.com/first20hours/google-10000-english/master/google-10000-english-no-swears.txt', true);
+    request.send(null);
+    request.onreadystatechange = function () {
+        if (request.readyState === 4 && request.status === 200) {
+            generateWords(request.responseText)
+        }
+    }
+}
+
+function generateWords(words) {
+    words = words.split("\n")
+    var tempI = words.length
+    while(tempI--){
+        if(words[tempI].length < 3){
+            words.splice(tempI, 1)
+        }else if(words[tempI].length > 10){
+            words.splice(tempI, 1)
+        }
+    }
+    console.log(words);
+
     var tempString = ""
     var textarea = document.getElementById("textShow")
     for (let i = 0; i < 100; i++) {
         var span = document.createElement("span")
-        var x = Math.floor(Math.random() * arr.length)
-        tempString += arr[x]
+        var x = Math.floor(Math.random() * words.length)
+        tempString += words[x]
         span.innerText = tempString;
         tempString = ""
         span.setAttribute("id","word"+i)
