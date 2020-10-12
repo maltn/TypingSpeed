@@ -8,6 +8,8 @@ var calc;
 
 var spanofWords = []
 
+//Lowest 39 highest 43
+
 function requestWordList(){
     var request = new XMLHttpRequest();
     request.open('GET', 'https://gist.githubusercontent.com/deekayen/4148741/raw/98d35708fa344717d8eee15d11987de6c8e26d7d/1-1000.txt', true);
@@ -30,12 +32,14 @@ function generateWords(words) {
         }
     }
 
+    var tempo = []
     var tempString = ""
     var textarea = document.getElementById("textShow")
     for (let i = 0; i < 100; i++) {
         var span = document.createElement("span")
         var x = Math.floor(Math.random() * words.length)
         tempString += words[x]
+        tempo.push(words[x])
         span.innerText = tempString;
         tempString = ""
         span.setAttribute("id","word"+i)
@@ -47,6 +51,23 @@ function generateWords(words) {
         spanofWords.push(span)
         textarea.appendChild(span)
     }
+
+    setInterval(() => {
+        var penis = ""
+        for (let j = 0; j < 9; j++) {
+            if(penis.length + tempo[j].length <= 37){
+                penis += tempo[j]
+            }
+            else if(penis.length + tempo[j].length >= 43){
+                break
+            }else{
+                penis += tempo[j]
+            }
+        }
+        console.log(penis);
+        console.log(penis.length);
+        console.log(window.innerWidth);
+    }, 100);
 }
 function enter(){
     document.getElementById("inputA").onkeypress = function(e){

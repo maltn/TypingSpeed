@@ -9,8 +9,8 @@
 }
 
 #settingsMenuWrapper {
+	display: none;
 	position: absolute;
-
 
     width: 20vw;
     height: 50vh;
