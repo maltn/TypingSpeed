@@ -10,7 +10,7 @@ var spanofWords = []
 
 function requestWordList(){
     var request = new XMLHttpRequest();
-    request.open('GET', 'https://raw.githubusercontent.com/first20hours/google-10000-english/master/google-10000-english-no-swears.txt', true);
+    request.open('GET', 'https://gist.githubusercontent.com/deekayen/4148741/raw/98d35708fa344717d8eee15d11987de6c8e26d7d/1-1000.txt', true);
     request.send(null);
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
@@ -62,6 +62,8 @@ function enter(){
     }
 }
 
+
+//after space pressed word check
 function wordCheck(){
     var inp = document.getElementById("inputA")
 
@@ -70,7 +72,30 @@ function wordCheck(){
     }else if(inp.value != document.getElementById("word" + (currentWord - 1)).innerText) {
         document.getElementById("word"+ (currentWord - 1)).setAttribute("class","wrong")
     }
-    
+}
+
+
+var keys = ["KeyQ", "KeyW", "KeyE", "KeyR", "KeyT", "KeyY", "KeyU", "KeyI", "KeyO", "KeyP", "KeyÅ", "KeyA", "KeyS", "KeyD", "KeyF", "KeyG", "KeyH", "KeyJ", "KeyK", "KeyL", "KeyÖ", "KeyÄ", "KeyZ", "KeyX", "KeyC", "KeyV", "KeyB", "KeyN", "KeyM", "ShiftLeft", "ShiftRight"]
+function keystroke(e)
+{
+    var inputField = document.getElementById("inputA")
+
+    if(document.activeElement == inputField){
+        for (let i = 0; i < keys.length; i++) {
+            if(e.code == keys[i]){
+                if(hasTimeStarted == false){
+                    timer()
+                    hasTimeStarted = true;
+                    updateWPM()
+                }
+      
+                if(inputField.value != document.getElementById("word"+(currentWord-1)).innerText.substring(0,inputField.value.length)){
+                }else{
+                    keystrokes += 1
+                }
+            }
+        }
+    }
 }
 
 function valueUpdate(){
@@ -79,6 +104,7 @@ function valueUpdate(){
         if(inp.value != document.getElementById("word"+(currentWord-1)).innerText.substring(0,inp.value.length)){
             document.getElementById("word"+(currentWord-1)).setAttribute("class","wrong")
         }else{
+
             document.getElementById("word"+(currentWord-1)).setAttribute("class","currentWord")
         }
     }    
@@ -90,24 +116,6 @@ function inputHandler(){
     currentWord += 1;
 }
 
-
-var keys = ["KeyQ", "KeyW", "KeyE", "KeyR", "KeyT", "KeyY", "KeyU", "KeyI", "KeyO", "KeyP", "KeyÅ", "KeyA", "KeyS", "KeyD", "KeyF", "KeyG", "KeyH", "KeyJ", "KeyK", "KeyL", "KeyÖ", "KeyÄ", "KeyZ", "KeyX", "KeyC", "KeyV", "KeyB", "KeyN", "KeyM", "ShiftLeft", "ShiftRight"]
-function keystroke(e)
-{
-    var inputField = document.getElementById("inputA")
-    if(document.activeElement == inputField){
-        for (let i = 0; i < keys.length; i++) {
-            if(e.code == keys[i]){
-                if(hasTimeStarted == false){
-                    timer()
-                    hasTimeStarted = true;
-                    updateWPM()
-                }
-                keystrokes += 1
-            }
-        }
-    }
-}
 
 document.onkeyup = keystroke;
 
@@ -126,7 +134,6 @@ function timer(){
         }
 
         if((x - Math.floor(timeCurrent / 1000)) == 0){
-            console.log("penis");
             $(".resultWrapper").fadeIn(250);
             document.getElementById("result").innerText = "Wow! a whole whopping " + calc + " words per minute!"
         }
@@ -143,7 +150,8 @@ function timer(){
                     print(spanofWords[i])
                 }
             }else{
-                console.log(lc)
+                //??? dont remember
+                //console.log(lc)
             }
         } catch (error) {
             
