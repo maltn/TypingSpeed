@@ -1,0 +1,60 @@
+#settingsButton {
+    position: absolute;
+
+    margin: 40px;
+    width: 40px;
+    top: 0px;
+    right: 0px;
+    filter: invert();
+}
+
+#settingsMenuWrapper {
+	position: absolute;
+
+
+    width: 20vw;
+    height: 50vh;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(17,17,17);
+
+	margin-right: 40px;
+	right: 0;
+	top: 10vh;
+}
+
+#settingsInnerWrapper {
+	width: 90%;
+	height: 92%;
+	
+	position: relative;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.settingsmenuButton {
+	background-color: inherit;
+	border: none;
+	outline: none;
+
+	width: 80%;
+	height: 12.5%;
+	float: left;
+
+	margin-left: 10%;
+	margin-top: 10%;
+}
+
+.settingsmenuButton:hover {
+	background-color: rgb(12, 12, 12);
+}
+
+.settingsmenuButton p {
+	margin: 0;
+	margin-top: 8px;
+	margin-left: 8px;
+	color: white;
+	text-align: left;
+	font-family: Helvetica;
+	font-size: 30px;
+}

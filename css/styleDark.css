@@ -3,16 +3,6 @@ body {
     background-color: rgb(11,11,11);
 }
 
-#settingsButton {
-    position: absolute;
-
-    margin: 40px;
-    width: 40px;
-    top: 0px;
-    right: 0px;
-    filter: invert();
-}
-
 .wrapper {
     position: absolute;
     left: 50%;
