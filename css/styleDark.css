@@ -130,3 +130,100 @@ span {
 
     border-right: 1px solid rgb(0, 0, 0);
 }
+
+
+
+
+
+/* CHART CHART CHART */
+
+#historyChart {
+    background-color: rgb(17,17,17);
+    border: 1px solid black;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%,-50%);
+    width: 40vw !important;
+    height: 39vh !important;
+}
+
+/* Use this selector to override the line style on a given series */
+
+.ct-chart {
+    margin-top: 1.5vh;
+}
+
+.ct-grid {
+    stroke: rgb(24, 24, 24) !important;
+}
+
+.ct-labels span {
+    color: rgb(255, 255, 255);
+}
+
+.ct-series-a .ct-line {
+    /* Set the colour of this series line */
+    stroke: rgb(255, 255, 255) !important;
+    /* Control the thikness of your lines */
+    stroke-width: 1px;
+  }
+  
+/* This selector overrides the points style on line charts. Points on line charts are actually just very short strokes. This allows you to customize even the point size in CSS */
+.ct-series-a .ct-point {
+    /* Colour of your points */
+    stroke: rgb(255, 255, 255) !important;
+    /* Size of your points */
+    stroke-width: 5px;
+    /* Make your points appear as squares */
+    stroke-linecap: circle;
+}
+
+
+
+
+/* COOKIES COOKIES COOKIES */
+
+#myCookieConsent {
+    z-index: 999;
+    min-height: 20px;
+    font-family: Helvetica;
+    padding: 10px 20px;
+    background: rgba(0,0,0,0.6);
+    overflow: hidden;
+    position: fixed;
+    color: #FFF;
+    bottom: 0px;
+    right: 10px;
+    display: none;
+    left: 0;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+}
+#myCookieConsent div {
+    padding: 5px 0 0;
+}
+#myCookieConsent a {
+    color: #ffba55;
+    display: inline-block;
+    padding: 0 10px;
+}
+#myCookieConsent a:hover {
+	color: #fda016;
+}
+#myCookieConsent a#cookieButton {
+    display: inline-block;
+    color: #000000;
+    font-size: 1.1em;
+	background: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 2px 20px;
+    float: right;
+    border-radius: 20px;
+}
+#myCookieConsent a#cookieButton:hover {
+    background: #838383;
+	color: #000;
+}

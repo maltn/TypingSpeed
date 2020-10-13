@@ -32,14 +32,16 @@ function generateWords(words) {
         }
     }
 
-    var tempo = []
+    var tempo = ""
     var tempString = ""
     var textarea = document.getElementById("textShow")
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 1000; i++) {
         var span = document.createElement("span")
         var x = Math.floor(Math.random() * words.length)
         tempString += words[x]
-        tempo.push(words[x])
+        if(i < 100){
+            tempo += words[x] + " "
+        }
         span.innerText = tempString;
         tempString = ""
         span.setAttribute("id","word"+i)
@@ -51,6 +53,7 @@ function generateWords(words) {
         spanofWords.push(span)
         textarea.appendChild(span)
     }
+    console.log(tempo);
 }
 
 function enter(){
@@ -184,7 +187,35 @@ function updateWPM(){
     setInterval(() => {
         var wpmCounter = document.getElementById("wpmCounter")
         
-        calc = Math.floor((keystrokes/5) / (Math.ceil((timeCurrent / 1000 / 60) * 100) / 100))
+        console.log((timeCurrent / 1000) / 60);
+        calc = Math.ceil((keystrokes/5) / ((timeCurrent / 1000) / 60))
         wpmCounter.innerText = calc + " WPM"
     }, 100);
+}
+
+
+//Graphing chartjs library
+
+const lastSpeed = [100, 102, 120, 95, 76, 100, 102, 120, 95, 76, 100, 102, 120, 95, 76, 100, 102, 120, 95, 76]
+
+function graph(){
+    var data = {
+        // A labels array that can contain any sort of values
+        labels: "",
+        // Our series array that contains series objects or in this case series data arrays
+        series: [lastSpeed]
+    };
+      
+      // As options we currently only set a static size of 300x200 px. We can also omit this and use aspect ratio containers
+      // as you saw in the previous example
+    var options = {
+        width: "40vw",
+        height: "39vh",
+        low: 0
+    };
+      
+      // Create a new line chart object where as first parameter we pass in a selector
+      // that is resolving to our chart container element. The Second parameter
+      // is the actual data object. As a third parameter we pass in our custom options.
+    new Chartist.Line('.ct-chart', data, options);
 }
