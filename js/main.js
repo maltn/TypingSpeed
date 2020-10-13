@@ -53,7 +53,6 @@ function generateWords(words) {
         spanofWords.push(span)
         textarea.appendChild(span)
     }
-    console.log(tempo);
 }
 
 function enter(){
@@ -144,6 +143,8 @@ function inputHandler(){
 
 document.onkeyup = keystroke;
 
+
+var cookieInputOnce = false
 function timer(){
     var x = 60
     timeStart = new Date().getTime()
@@ -158,8 +159,27 @@ function timer(){
             timeCounter.innerText = "0:" + (x - Math.floor(timeCurrent / 1000).toString());
         }
 
-        //time is over show result screen here
-        if((x - Math.floor(timeCurrent / 1000)) == 0){
+        //time is over show result screen here CHANGE TO 0 INSTEAD OF 50 WHEN DONE HERE :)
+        if((x - Math.floor(timeCurrent / 1000)) == 55){
+            if(cookieInputOnce == false){
+                cookieInputOnce = true
+                
+                const wpmCalc = Math.ceil((keystrokes/5) / ((timeCurrent / 1000) / 60))
+                if(getCookie("wpmList") == ""){
+                    console.log("cookie created");
+                    document.cookie = "wpmList = " + '["' + wpmCalc + '"]' + "; max-age=" + 5*365*24*60*60
+                }
+                else{
+                    var a = []
+                    for(let i = 0; i < JSON.parse(getCookie("wpmList")).length; i++){
+                        a.push(String(JSON.parse(getCookie("wpmList"))[i]))
+                    }
+                    console.log(a);
+                    a.push(String(wpmCalc))
+                    console.log(a);
+                    document.cookie = "wpmList = " + JSON.stringify(a) + "; max-age=" + 5*365*24*60*60
+                }
+            }
         }
 
         
@@ -187,7 +207,6 @@ function updateWPM(){
     setInterval(() => {
         var wpmCounter = document.getElementById("wpmCounter")
         
-        console.log((timeCurrent / 1000) / 60);
         calc = Math.ceil((keystrokes/5) / ((timeCurrent / 1000) / 60))
         wpmCounter.innerText = calc + " WPM"
     }, 100);
@@ -206,16 +225,16 @@ function graph(){
         series: [lastSpeed]
     };
       
-      // As options we currently only set a static size of 300x200 px. We can also omit this and use aspect ratio containers
-      // as you saw in the previous example
+    // As options we currently only set a static size of 300x200 px. We can also omit this and use aspect ratio containers
+    // as you saw in the previous example
     var options = {
         width: "40vw",
         height: "39vh",
         low: 0
     };
       
-      // Create a new line chart object where as first parameter we pass in a selector
-      // that is resolving to our chart container element. The Second parameter
-      // is the actual data object. As a third parameter we pass in our custom options.
+    // Create a new line chart object where as first parameter we pass in a selector
+    // that is resolving to our chart container element. The Second parameter
+    // is the actual data object. As a third parameter we pass in our custom options.
     new Chartist.Line('.ct-chart', data, options);
 }

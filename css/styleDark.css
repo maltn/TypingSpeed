@@ -1,6 +1,6 @@
 body {
     font-family: Helvetica;
-    background-color: rgb(11,11,11);
+    background-color: rgb(12, 12, 12);
 }
 
 .wrapper {
@@ -164,9 +164,9 @@ span {
 
 .ct-series-a .ct-line {
     /* Set the colour of this series line */
-    stroke: rgb(255, 255, 255) !important;
+    stroke: rgba(255, 255, 255, 0.603) !important;
     /* Control the thikness of your lines */
-    stroke-width: 1px;
+    stroke-width: 2px;
   }
   
 /* This selector overrides the points style on line charts. Points on line charts are actually just very short strokes. This allows you to customize even the point size in CSS */
