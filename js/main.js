@@ -8,7 +8,7 @@ var calc;
 
 var spanofWords = []
 
-//Lowest 39 highest 43
+//If current height is different from previous then change row :)
 
 function requestWordList(){
     var request = new XMLHttpRequest();
@@ -51,33 +51,33 @@ function generateWords(words) {
         spanofWords.push(span)
         textarea.appendChild(span)
     }
-
-    setInterval(() => {
-        var penis = ""
-        for (let j = 0; j < 9; j++) {
-            if(penis.length + tempo[j].length <= 37){
-                penis += tempo[j]
-            }
-            else if(penis.length + tempo[j].length >= 43){
-                break
-            }else{
-                penis += tempo[j]
-            }
-        }
-        console.log(penis);
-        console.log(penis.length);
-        console.log(window.innerWidth);
-    }, 100);
 }
+
 function enter(){
-    document.getElementById("inputA").onkeypress = function(e){
+    var input = document.getElementById("inputA")
+    input.onkeypress = function(e){
         if (!e) e = window.event;
         var keyCode = e.keyCode || e.which;
         if (keyCode == 32){
+            if(input.length > 2){
+                keystrokes += 1
+            }
+
+            wordDelete()
             wordCheck()
             inputHandler()
             return false;
 
+        }
+    }
+}
+
+function wordDelete(){
+    if(currentWord > 1){
+        if((document.getElementById("word"+ (currentWord - 1)).offsetTop - document.getElementById("word"+ (currentWord)).offsetTop) != 0){
+            for (let i = 0; i < currentWord; i++) {
+                document.getElementById("word"+ (i)).style.display = "none"
+            }
         }
     }
 }
@@ -108,11 +108,13 @@ function keystroke(e)
                     hasTimeStarted = true;
                     updateWPM()
                 }
-      
-                if(inputField.value != document.getElementById("word"+(currentWord-1)).innerText.substring(0,inputField.value.length)){
-                }else{
+                
+                //för långsamt den hinner göra backspacen innan
+                if(inputField.value[inputField.value.length - 1] === document.getElementById("word"+(currentWord-1)).innerHTML[inputField.value.length - 1]){
+                    console.log(inputField.value[0]);
                     keystrokes += 1
                 }
+                break
             }
         }
     }
