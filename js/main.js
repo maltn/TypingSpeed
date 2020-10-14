@@ -245,6 +245,23 @@ function drawGraph(d){
     clearBttn.setAttribute("onclick", "drawGraph(1)")
     div.appendChild(clearBttn)
 
+    var exportBttn = document.createElement("button")
+    exportBttn.setAttribute("id","exportGraph")
+    exportBttn.style.position = "absolute"
+    exportBttn.style.right = "56px"
+    exportBttn.style.bottom = "-1px"
+    exportBttn.style.width = "3vw"
+    exportBttn.style.height = "2vh"
+    exportBttn.style.border = "1px solid black"
+    exportBttn.style.backgroundColor = "rgb(17,17,17)"
+    exportBttn.style.fontSize = "10px";
+    exportBttn.style.letterSpacing = "1px"
+    exportBttn.style.color = "rgb(70,70,70)"
+    exportBttn.style.outline = "none"
+    exportBttn.innerHTML = "EXPORT"
+
+    div.appendChild(exportBttn)
+
     if(d == 1){
         if(confirm("You are about to clear all your past WPM data. Are you sure?")){
             document.cookie = "wpmList = []"
@@ -286,28 +303,39 @@ function drawStats(){
     div.appendChild(p)
 }
 
-function drawSettings(){
-    var div = document.createElement("DIV")
-    div.setAttribute("id","settingsContainer")
-    document.body.appendChild(div)
-
-    var div1 = document.createElement("DIV")
-    div1.setAttribute("id","settingsItemWrapper")
-    div.appendChild(div1)
-
-    for(var i = 0; i < 3; i++){
-        var div2 = document.createElement("DIV")
-        div2.setAttribute("class","settingsMenuItem")
-        div1.appendChild(div2)
-
-        if(i == 0){
-            div2.innerHTML = "Language"
-        }else if(i == 1){
-            div2.innerHTML = "Text"
-        }else{
-            div2.innerHTML = "Themes"
+function drawSettings(x){
+    if(x == 0){
+        var div = document.createElement("DIV")
+        div.setAttribute("id","settingsContainer")
+        document.body.appendChild(div)
+    
+        var div1 = document.createElement("DIV")
+        div1.setAttribute("id","settingsItemWrapper")
+        div.appendChild(div1)
+    
+        for(var i = 0; i < 3; i++){
+            var div2 = document.createElement("DIV")
+            div2.setAttribute("class","settingsMenuItem")
+            div2.setAttribute("onclick","drawSettings(this)")
+    
+            if(i == 0){
+                div2.style.backgroundColor = "rgb(30,30,30)"
+                div2.innerHTML = "Language"
+            }else if(i == 1){
+                div2.innerHTML = "Text"
+            }else{
+                div2.innerHTML = "Themes"
+            }
+            div1.appendChild(div2)
         }
-        
+    }else{
+        for (let i = 0; i < document.getElementsByClassName("settingsMenuItem").length; i++) {
+            document.getElementsByClassName("settingsMenuItem")[i].style.backgroundColor = "rgb(17,17,17)"
+        }
+
+        console.log(x);
+        x.style.backgroundColor = "rgb(30,30,30)"
+        console.log(x);
     }
 }
 
@@ -318,19 +346,17 @@ function tabManager(elem){
         document.getElementsByClassName("TabItem")[i].style.backgroundColor = "rgb(17,17,17)"
     }
 
-    elem.style.backgroundColor = "rgb(30,30,30)"
-
     try {
         document.getElementById("historyChart").remove()
     }catch{}
-
     try {
         document.getElementById("statsContainer").remove()   
     }catch{}
-
     try {
         document.getElementById("settingsContainer").remove()   
     }catch{}
+
+    elem.style.backgroundColor = "rgb(30,30,30)"
 
     if(elem.innerHTML == "Main"){
     }else if(elem.innerHTML == "Graph"){
@@ -339,6 +365,6 @@ function tabManager(elem){
     }else if(elem.innerHTML == "Stats"){
         drawStats()
     }else if(elem.innerHTML == "Settings"){
-        drawSettings()
+        drawSettings(0)
     }
 }
