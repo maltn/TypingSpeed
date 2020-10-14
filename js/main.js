@@ -159,8 +159,8 @@ function timer(){
             timeCounter.innerText = "0:" + (x - Math.floor(timeCurrent / 1000).toString());
         }
 
-        //time is over show result screen here CHANGE TO 0 INSTEAD OF 50 WHEN DONE HERE :)
-        if((x - Math.floor(timeCurrent / 1000)) == 55){
+        //time is over show result screen here
+        if((x - Math.floor(timeCurrent / 1000)) == 0){
             if(cookieInputOnce == false){
                 cookieInputOnce = true
                 
