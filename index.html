@@ -24,6 +24,7 @@
             <div class="TabItem" onclick="tabManager(this)">Main</div>
             <div class="TabItem" onclick="tabManager(this)">Graph</div>
             <div class="TabItem" onclick="tabManager(this)">Stats</div>
+            <div class="TabItem" onclick="tabManager(this)">Settings</div>
         </div>
 
         <div id="textShow" spellcheck="false";>
@@ -42,18 +43,6 @@
     <div class="resultWrapper">
         <p id="result">Wow!<br> a whole whopping<br> {WPM} words per minute! <br> <br>CTRL R to play again!</p>
     </div>
-
-    <div id="settingsMenuWrapper">
-        <div id="settingsInnerWrapper">
-            <button class="settingsmenuButton" id="settingsmenuButton1"><p>Language</p></button>
-            <button class="settingsmenuButton" id="settingsmenuButton2"><p>Text Settings</p></button>
-            <button class="settingsmenuButton" id="settingsmenuButton3"><p>Themes</p></button>
-            <button class="settingsmenuButton" id="settingsmenuButton4"><p>GitHub</p></button>
-        </div>
-    </div>
-
-
-    <img id="settingsButton" src="images/settings.svg" alt="Settings" onclick="settingsBttn()">
 
     <script>
         $(window).on("load",function(){

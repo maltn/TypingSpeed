@@ -286,6 +286,14 @@ function drawStats(){
     div.appendChild(p)
 }
 
+function drawSettings(){
+    var div = document.createElement("DIV")
+    div.setAttribute("id","settingsContainer")
+    document.body.appendChild(div)
+
+    
+}
+
 //tab management
 
 function tabManager(elem){
@@ -303,11 +311,17 @@ function tabManager(elem){
         document.getElementById("statsContainer").remove()   
     }catch{}
 
+    try {
+        document.getElementById("settingsContainer").remove()   
+    }catch{}
+
     if(elem.innerHTML == "Main"){
     }else if(elem.innerHTML == "Graph"){
         drawGraph(0)
         $("#historyChart").show()
     }else if(elem.innerHTML == "Stats"){
         drawStats()
+    }else if(elem.innerHTML == "Settings"){
+        drawSettings()
     }
 }

@@ -263,3 +263,18 @@ span {
     background: #838383;
 	color: #000;
 }
+
+
+/* SETTINGS SETTINGS SETTINGS */
+
+#settingsContainer{
+    background-color: rgb(17,17,17);
+    border: 1px solid black;
+    width: 40vw;
+    height: 39vh;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
