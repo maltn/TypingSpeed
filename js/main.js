@@ -179,6 +179,7 @@ function timer(){
                     console.log(a);
                     document.cookie = "wpmList = " + JSON.stringify(a) + "; max-age=" + 5*365*24*60*60
                 }
+                graph()
             }
         }
 
@@ -215,9 +216,44 @@ function updateWPM(){
 
 //Graphing chartjs library
 
-const lastSpeed = [100, 102, 120, 95, 76, 100, 102, 120, 95, 76, 100, 102, 120, 95, 76, 100, 102, 120, 95, 76]
+function drawGraph(d){
+    try {
+        document.getElementById("historyChart").remove()
+    }catch{}
+    var div = document.createElement("DIV")
+    div.setAttribute("id","historyChart")
+    document.body.appendChild(div)
 
-function graph(){
+    var div2 = document.createElement("DIV")
+    div2.setAttribute("class","ct-chart ct-perfect-fourth")
+    div.appendChild(div2)
+
+    var clearBttn = document.createElement("button")
+    clearBttn.setAttribute("id","clearGraph")
+    clearBttn.style.position = "absolute"
+    clearBttn.style.right = "-1px"
+    clearBttn.style.bottom = "-1px"
+    clearBttn.style.width = "3vw"
+    clearBttn.style.height = "2vh"
+    clearBttn.style.border = "1px solid black"
+    clearBttn.style.backgroundColor = "rgb(17,17,17)"
+    clearBttn.style.fontSize = "10px";
+    clearBttn.style.letterSpacing = "1px"
+    clearBttn.style.color = "rgb(70,70,70)"
+    clearBttn.style.outline = "none"
+    clearBttn.innerHTML = "CLEAR"
+    clearBttn.setAttribute("onclick", "drawGraph(1)")
+    div.appendChild(clearBttn)
+
+    if(d == 1){
+        if(confirm("You are about to clear all your past WPM data. Are you sure?")){
+            document.cookie = "wpmList = []"
+        }else{
+
+        }
+    }
+
+    var lastSpeed = JSON.parse(getCookie("wpmList"))
     var data = {
         // A labels array that can contain any sort of values
         labels: "",
@@ -230,11 +266,48 @@ function graph(){
     var options = {
         width: "40vw",
         height: "39vh",
-        low: 0
+        low: 0,
+        high: Math.max(lastSpeed)
     };
       
     // Create a new line chart object where as first parameter we pass in a selector
     // that is resolving to our chart container element. The Second parameter
     // is the actual data object. As a third parameter we pass in our custom options.
     new Chartist.Line('.ct-chart', data, options);
+}
+
+function drawStats(){
+    var div = document.createElement("DIV")
+    div.setAttribute("id","statsContainer")
+    document.body.appendChild(div)
+
+    var p = document.createElement("p")
+    p.innerHTML = "Stats coming soon =)"
+    div.appendChild(p)
+}
+
+//tab management
+
+function tabManager(elem){
+    for (var i = 0; i < document.getElementsByClassName("TabItem").length; i++) {
+        document.getElementsByClassName("TabItem")[i].style.backgroundColor = "rgb(17,17,17)"
+    }
+
+    elem.style.backgroundColor = "rgb(30,30,30)"
+
+    try {
+        document.getElementById("historyChart").remove()
+    }catch{}
+
+    try {
+        document.getElementById("statsContainer").remove()   
+    }catch{}
+
+    if(elem.innerHTML == "Main"){
+    }else if(elem.innerHTML == "Graph"){
+        drawGraph(0)
+        $("#historyChart").show()
+    }else if(elem.innerHTML == "Stats"){
+        drawStats()
+    }
 }

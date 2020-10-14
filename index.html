@@ -19,8 +19,13 @@
         <a id="cookieButton">Close</a>
         <div>This website is using cookies, by using this website you agree to cookies being stored on your device.</div>
     </div>
-
     <div class="wrapper">
+        <div id="TabWrapper">
+            <div class="TabItem" onclick="tabManager(this)">Main</div>
+            <div class="TabItem" onclick="tabManager(this)">Graph</div>
+            <div class="TabItem" onclick="tabManager(this)">Stats</div>
+        </div>
+
         <div id="textShow" spellcheck="false";>
         </div>
         <div id="inputField" spellcheck="false">
@@ -50,18 +55,13 @@
 
     <img id="settingsButton" src="images/settings.svg" alt="Settings" onclick="settingsBttn()">
 
-
-    <div id="historyChart">
-        <div class="ct-chart ct-perfect-fourth"></div>
-    </div>
-
     <script>
         $(window).on("load",function(){
+            document.getElementsByClassName("TabItem")[0].style.backgroundColor = "rgb(30,30,30)"
             $(".resultWrapper").hide()
             requestWordList()
             enter()
             valueUpdate()
-            graph()
         });
     </script>
 

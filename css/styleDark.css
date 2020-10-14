@@ -17,6 +17,39 @@ body {
     transform: translate(-50%, -50%);
 }
 
+#TabWrapper {
+    position: absolute;
+    background-color: rgb(17,17,17);
+
+    top: -36px;
+    margin-left: -1px;
+    z-index: 111;
+}
+
+.TabItem {
+    float: left;
+    color: rgb(97, 97, 97);
+    background-color: rgb(17,17,17);
+    border: 1px solid black;
+    padding: 0.4vw;
+    padding-left: 1.2vw;
+    padding-right: 1.2vw;
+
+    margin-right: -1px;
+
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+}
+
+.TabItem:hover {
+    background-color: rgb(24, 24, 24);
+    cursor: pointer;
+}
+
 #inputField {
     position: absolute;
     bottom: 0px;
@@ -132,7 +165,18 @@ span {
 }
 
 
+/* STATS STATS STATS */
 
+#statsContainer {
+    background-color: rgb(17,17,17);
+    border: 1px solid black;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 40vw !important;
+    height: 39vh !important;
+}
 
 
 /* CHART CHART CHART */
@@ -142,13 +186,11 @@ span {
     border: 1px solid black;
     position: absolute;
     left: 50%;
-    top: 100%;
+    top: 50%;
     transform: translate(-50%,-50%);
     width: 40vw !important;
     height: 39vh !important;
 }
-
-/* Use this selector to override the line style on a given series */
 
 .ct-chart {
     margin-top: 1.5vh;
@@ -163,19 +205,13 @@ span {
 }
 
 .ct-series-a .ct-line {
-    /* Set the colour of this series line */
-    stroke: rgba(255, 255, 255, 0.603) !important;
-    /* Control the thikness of your lines */
+    stroke: rgb(255, 255, 255) !important;
     stroke-width: 2px;
   }
   
-/* This selector overrides the points style on line charts. Points on line charts are actually just very short strokes. This allows you to customize even the point size in CSS */
 .ct-series-a .ct-point {
-    /* Colour of your points */
     stroke: rgb(255, 255, 255) !important;
-    /* Size of your points */
     stroke-width: 5px;
-    /* Make your points appear as squares */
     stroke-linecap: circle;
 }
 
