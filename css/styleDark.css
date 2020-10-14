@@ -42,7 +42,7 @@ body {
 
     user-select: none;
     -moz-user-select: none;
-    -webkit-user-drag: none;
+    -webkit-user-select: none;
 }
 
 .TabItem:hover {
@@ -277,4 +277,38 @@ span {
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
+}
+
+#settingsItemWrapper {
+    position: absolute;
+    background-color: rgb(17,17,17);
+
+    top: -22px;
+    left: calc(50% - 22px);
+    margin-left: -1px;
+    z-index: 111;
+}
+
+.settingsMenuItem {
+    float: left;
+    color: rgb(97, 97, 97);
+    background-color: rgb(17,17,17);
+    border: 1px solid black;
+    padding: 0.1vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
+
+    margin-right: -1px;
+
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.settingsMenuItem:hover {
+    background-color: rgb(24, 24, 24);
+    cursor: pointer;
 }

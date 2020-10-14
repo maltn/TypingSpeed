@@ -291,7 +291,24 @@ function drawSettings(){
     div.setAttribute("id","settingsContainer")
     document.body.appendChild(div)
 
-    
+    var div1 = document.createElement("DIV")
+    div1.setAttribute("id","settingsItemWrapper")
+    div.appendChild(div1)
+
+    for(var i = 0; i < 3; i++){
+        var div2 = document.createElement("DIV")
+        div2.setAttribute("class","settingsMenuItem")
+        div1.appendChild(div2)
+
+        if(i == 0){
+            div2.innerHTML = "Language"
+        }else if(i == 1){
+            div2.innerHTML = "Text"
+        }else{
+            div2.innerHTML = "Themes"
+        }
+        
+    }
 }
 
 //tab management
